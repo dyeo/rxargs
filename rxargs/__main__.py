@@ -3,21 +3,22 @@
 Interpret standard input using PATTERN, then execute COMMAND as a regex substitution of that input.
 """
 
+from . import __version__
+
 import argparse
 import re
 import subprocess
 from sys import argv, stdin
 
-__version__="0.1.0"
 
-__epilog__=\
+epilog=\
 "By default, this program exits upon the first command with a non-zero exit status.\n"\
 "Use the --force (-f) flag to ignore this behaviour\n\n"\
 "By default, this program will execute a separate command for each line received from STDIN.\n"\
 "Use the --whole (-w) flag to run a single command from the entire input.\n\n"\
 "This program uses python regular expressions.\n"\
 "See <https://docs.python.org/3/library/re.html#regular-expression-syntax> for more info.\n"
-    
+
 
 def parse_args():
     import argparse
@@ -25,7 +26,7 @@ def parse_args():
         prog="rxargs",
         usage='%(prog)s [options] [flags] PATTERN COMMAND',
         description=__doc__, 
-        epilog=__epilog__,
+        epilog=epilog,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     argp.add_argument('pattern', metavar='PATTERN', type=str, help='a string representing the pattern to parse from stdin')

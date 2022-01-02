@@ -1,12 +1,13 @@
 from setuptools import setup
+from rxargs import __version__
 
 setup(
     name="rxargs",
-    version="0.1.0",
+    version=__version__,
     author='Dan Yeomans',
     author_email='dan@dyeo.net',
     url='https://github.com/dyeo/rxargs',
-    download_url='https://github.com/dyeo/rxargs/archive/0.1.0.tar.gz',
+    download_url=f'https://github.com/dyeo/rxargs/archive/{__version__}.tar.gz',
     keywords=['cli', 'tools'],
     packages=["rxargs"],
     include_package_data=True,

@@ -9,13 +9,13 @@ setup(
     url='https://github.com/dyeo/rxargs',
     download_url=f'https://github.com/dyeo/rxargs/archive/{__version__}.tar.gz',
     keywords=['cli', 'tools'],
-    packages=["rxargs"],
+    packages=[],
     include_package_data=True,
     zip_safe=False,
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'rxargs = rxargs.__main__:run',
+            'rxargs = rxargs:run',
         ],
     }
 )

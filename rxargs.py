@@ -2,8 +2,7 @@
 """
 Interpret standard input using PATTERN, then execute COMMAND as a regex substitution of that input.
 """
-
-from . import __version__
+__version__="0.2.1"
 
 import argparse
 import re

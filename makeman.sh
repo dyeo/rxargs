@@ -2,7 +2,7 @@
 
 NAME='rxargs'
 URL='https://www.github.com/dyeo/rxargs'
-PYFILE='rxargs/__main__.py'
+PYFILE='rxargs.py'
 FUNCTION='parse_args'
 AUTHOR='Dan Yeomans'
 AUTHOR_EMAIL='dan@dyeo.net'

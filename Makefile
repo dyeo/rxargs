@@ -4,7 +4,7 @@ build:
 	python setup.py build
 
 install:
-	python setup.py install --root="$pkgdir" --optimize=1 --skip-build
+	python setup.py install --root="${pkgdir}" --optimize=1 --skip-build
 
 man:
 	argparse-manpage \

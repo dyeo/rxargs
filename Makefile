@@ -4,7 +4,7 @@ build:
 	python setup.py build
 
 install:
-	python setup.py install --root="$(DESTDIR)" --optimize=1 --skip-build
+	python setup.py install --optimize=1 --skip-build
 
 man:
 	argparse-manpage \

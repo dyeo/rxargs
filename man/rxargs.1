@@ -5,7 +5,7 @@ rxargs
 .B rxargs
 [options] [flags] PATTERN COMMAND
 .SH DESCRIPTION
-Interpret standard input using PATTERN, then execute COMMAND as a regex substitution of that input.
+Interpret standard input using PATTERN, then execute COMMAND using the captures of that input.
 
 .TP
 \fBPATTERN\fR
@@ -13,12 +13,16 @@ a string representing the pattern to parse from stdin
 
 .TP
 \fBCOMMAND\fR
-a string representing the command to execute using the regex substitution
+a string representing the command to execute using the regex substitution. use \\# or \\g<#> to capture a numbered group, or \\g<name> to capture a named group
 
 .SH OPTIONS
 .TP
 \fB\-f\fR, \fB\-\-force\fR
 continue processing stdin even after a command returns a non\-zero exit code
+
+.TP
+\fB\-i\fR, \fB\-\-ignore\fR
+ignore invalid matches from stdin instead of terminating the program
 
 .TP
 \fB\-n\fR, \fB\-\-display\fR
@@ -54,14 +58,14 @@ when specified, the pattern character '^' matches at the beginning of the string
 make the '.' special character match any character at all, including a newline
 
 .SH COMMENTS
-By default, this program exits upon the first command with a non\-zero exit status.
-Use the \-\-force (\-f) flag to ignore this behaviour
-
-By default, this program will execute a separate command for each line received from STDIN.
-Use the \-\-whole (\-w) flag to run a single command from the entire input.
-
-This program uses python regular expressions.
-See <https://docs.python.org/3/library/re.html#regular\-expression\-syntax> for more info.
+.PP
+By default, this program will execute a separate command for each line received from STDIN. Use the \-\-whole (\-w) flag to run a single command from the entire input.
+.PP
+This program exits upon the first command executed with a non-zero exit status. Use the \-\-force (\-f) flag to ignore this behaviour.
+.PP
+This program will also exit upon the first non-match in stdin. Use the \-\-ignore (\-i) flag to ignore those inputs instead.
+.PP 
+This program uses python regular expression syntax. See <https://docs.python.org/3/library/re.html#regular\-expression\-syntax> for more info.
 
 .SH AUTHORS
 .B rxargs

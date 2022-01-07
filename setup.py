@@ -1,5 +1,5 @@
 from setuptools import setup
-from rxargs import __version__
+from rxargs.version import __version__
 
 setup(
     name="rxargs",
@@ -15,7 +15,7 @@ setup(
     install_requires=[],
     entry_points={
         'console_scripts': [
-            'rxargs = rxargs.__main__:run',
+            'rxargs = rxargs.cli:main',
         ],
     }
 )
